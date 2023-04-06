@@ -1,7 +1,7 @@
 
 const NumberCensored = () => {
     return (
-        <span className="text-red-500 p-3 border-2 border-red-500 font-bold">
+        <span className="text-white px-5 py-3 bg-red-500 rounded-lg border-2 border-red-500 font-bold m-1 shadow-xl">
             ?
         </span>
     )

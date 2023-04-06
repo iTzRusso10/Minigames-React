@@ -6,7 +6,7 @@ import Numbers from "./pages/Number";
 const App = () => {
   return (
     <div className="w-full h-screen relative bg-banner bg-no-repeat bg-center bg-cover text-white p-2 flex justify-center">
-        <div>
+        <div className="absolute top-20 ">
             <Numbers />
         </div>
       <div className="w-full h-screen absolute top-0 left-0 z-[-1]">

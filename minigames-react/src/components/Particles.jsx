@@ -5,9 +5,6 @@ import { loadFull } from 'tsparticles';
 const Design = () => {
     const particlesInit = useCallback(async engine => {
         console.log(engine);
-        // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-        // starting from v2 you can add only the features you need reducing the bundle size
         await loadFull(engine);
     }, []);
 
@@ -23,7 +20,7 @@ const Design = () => {
         options={{
             background: {
                 color: {
-                    value: "#000000",
+                    value: "#ffffff",
                 },
             },
             fpsLimit: 120,
@@ -34,10 +31,9 @@ const Design = () => {
                         mode: "push",
                     },
                     onHover: {
-                        enable: false,
-                        mode: "trail",
+                        enable: true,
+                        mode: "grab",
                     },
-                    resize: true,
                 },
                 modes: {
                     push: {
@@ -47,7 +43,7 @@ const Design = () => {
             },
             particles: {
                 color: {
-                    value: "#ffffff",
+                    value: '#000000'
                 },
                 links: {
                     color: "#ffffff",
@@ -66,15 +62,15 @@ const Design = () => {
                         default: "bounce",
                     },
                     random: false,
-                    speed: 2,
-                    straight: false,
+                    speed: 3,
+                    straight: true,
                 },
                 number: {
                     density: {
                         enable: true,
-                        area: 800,
+                        area: 1000,
                     },
-                    value: 100,
+                    value: 70,
                 },
                 opacity: {
                     value: 0.5,
