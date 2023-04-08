@@ -1,14 +1,19 @@
 /* eslint-disable react/style-prop-object */
-import React from "react";
+import React, { useEffect } from "react";
 import Particles from "./components/Particles";
+import { Route, Routes } from "react-router-dom";
 import Numbers from "./pages/Number";
 
 const App = () => {
+  // useEffect(() => {
+  //   alert("Benvenuto nel minigioco Indovina il numero!");
+  // }, []);
+
   return (
-    <div className="w-full h-screen relative bg-banner bg-no-repeat bg-center bg-cover text-white p-2 flex justify-center">
-        <div className="absolute top-20 ">
-            <Numbers />
-        </div>
+    <div className="flex justify-center flex-wrap relative">
+      <Routes>
+        <Route path="/numbers" element={<Numbers />} />
+      </Routes>
       <div className="w-full h-screen absolute top-0 left-0 z-[-1]">
         <Particles />
       </div>

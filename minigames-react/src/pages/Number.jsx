@@ -42,7 +42,7 @@ const Numbers = () => {
   };
 
   return (
-    <div className="bg-gray-200 flex flex-col justify-center p-10 gap-8 items-center text-black rounded-xl opacity-90">
+    <div className="bg-gray-200 flex flex-col p-10 gap-8 content-center items-center text-black rounded-xl opacity-90 flex-wrap absolute top-[85px]">
       <Button
         id="rigenerate"
         callback={rigenerateNumber}
