@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable react/style-prop-object */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../components/Button";
 import NumberCensored from "../components/NumberCensored";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ const Numbers = () => {
   const [wrong, setWrong] = useState(false);
   const [animation, setAnimation] = useState();
   const [randomNumber, setRandomNumber] = useState(
-    Math.floor(Math.random() * 10)
+    Math.floor(Math.random() * 10) + 1
   );
 
   const navigate = useNavigate();
@@ -68,6 +68,7 @@ const Numbers = () => {
           </span>
         ) : (
           <NumberCensored />
+          
         )}
       </span>
       <label form="numbers" className="text-md font-black">
@@ -112,7 +113,7 @@ const Numbers = () => {
       {initalWord ? (
         <p className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-md font-black">
           Indovina il numero che si nasconde dietro il punto interrogativo
-          (0-10)
+          (1-10)
         </p>
       ) : (
         ""

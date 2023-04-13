@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/numbers" element={<Numbers />} />
         <Route path="/choosebox" element={<ChooseBox />} />
       </Routes>
-      <div className="w-full h-screen absolute top-0 left-0 z-[-1]">
+      <div className="w-full h-screen absolute top-0 left-0 z-[-1] animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-blue-500">
         <Particles />
       </div>
     </div>

@@ -4,7 +4,7 @@ const Button = ({ id, text, callback, style }) => {
   }
   return (
     <div>
-      <button id={id} onClick={callback} className={style}>
+      <button id={id} onClick={callback} className="font-black border-2 border-black rounded p-3 hover:bg-gray-300 active:bg-gray-400 shadow-xl">
         {text}
       </button>
     </div>

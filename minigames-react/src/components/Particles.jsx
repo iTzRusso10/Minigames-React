@@ -20,7 +20,7 @@ const Design = () => {
         options={{
             background: {
                 color: {
-                    value: "#ffffff",
+                    value: ""
                 },
             },
             fpsLimit: 120,
@@ -43,12 +43,12 @@ const Design = () => {
             },
             particles: {
                 color: {
-                    value: '#000000'
+                    value: '#ffffff'
                 },
                 links: {
                     color: "#ffffff",
                     distance: 200,
-                    enable: false,
+                    enable: true,
                     opacity: 0.2,
                     width: 1,
                 },
@@ -70,7 +70,7 @@ const Design = () => {
                         enable: true,
                         area: 1000,
                     },
-                    value: 70,
+                    value: 80,
                 },
                 opacity: {
                     value: 0.5,
