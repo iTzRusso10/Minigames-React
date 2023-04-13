@@ -1,18 +1,27 @@
 /* eslint-disable react/style-prop-object */
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import Particles from "./components/Particles";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Numbers from "./pages/Number";
+import Home from "./pages/Home";
+import ChooseBox from "./pages/ChooseBox";
 
 const App = () => {
-  // useEffect(() => {
-  //   alert("Benvenuto nel minigioco Indovina il numero!");
-  // }, []);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/home");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="flex justify-center flex-wrap relative">
       <Routes>
+        <Route path="/home" element={<Home />} />
         <Route path="/numbers" element={<Numbers />} />
+        <Route path="/choosebox" element={<ChooseBox />} />
       </Routes>
       <div className="w-full h-screen absolute top-0 left-0 z-[-1]">
         <Particles />

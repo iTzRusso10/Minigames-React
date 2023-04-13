@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable react/style-prop-object */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import NumberCensored from "../components/NumberCensored";
+import { useNavigate } from "react-router-dom";
 
 const Numbers = () => {
   const [inputValue, setInputValue] = useState("");
@@ -10,8 +12,10 @@ const Numbers = () => {
   const [wrong, setWrong] = useState(false);
   const [animation, setAnimation] = useState();
   const [randomNumber, setRandomNumber] = useState(
-    Math.round(Math.random() * 10)
+    Math.floor(Math.random() * 10)
   );
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -20,6 +24,7 @@ const Numbers = () => {
 
   const checkAnswer = () => {
     const inputNumber = parseInt(inputValue);
+
     if (inputNumber === randomNumber) {
       setIsCorrect(true);
       setInitialWord(false);
@@ -27,6 +32,9 @@ const Numbers = () => {
     } else {
       setIsCorrect(false);
       setWrong(true);
+      setTimeout(() => {
+        setWrong(false);
+      }, 1500);
       setInitialWord(false);
       setAnimation(true);
     }
@@ -42,13 +50,13 @@ const Numbers = () => {
   };
 
   return (
-    <div className="bg-gray-200 flex flex-col p-10 gap-8 content-center items-center text-black rounded-xl opacity-90 flex-wrap absolute top-[85px]">
+    <div className="bg-gray-200 flex flex-col p-10 gap-8 content-center items-center text-black rounded-xl opacity-90 flex-wrap absolute top-[20px]">
       <Button
-        id="rigenerate"
-        callback={rigenerateNumber}
-        text="Ricomincia"
+        id="return-home"
+        callback={() => navigate("/home")}
+        text="Torna alla home"
         style="border-2 border-black rounded p-2 hover:bg-gray-300 active:bg-gray-400 shadow-xl"
-      ></Button>
+      />
       <h1 className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black">
         Indovina il numero
       </h1>
@@ -62,11 +70,12 @@ const Numbers = () => {
           <NumberCensored />
         )}
       </span>
-      <label
-        form="numbers"
-        className="text-md font-black"
-      >
-        {isCorrect ? <p>Clicca ricomincia per avviare un altra partita ☝️</p> : <p>Inserisci il numero 👇</p> } 
+      <label form="numbers" className="text-md font-black">
+        {isCorrect ? (
+          <p>Clicca ricomincia per avviare un altra partita ☝️</p>
+        ) : (
+          <p>Inserisci il numero 👇</p>
+        )}
       </label>
       <input
         placeholder="Tenta la fortuna"
@@ -84,7 +93,9 @@ const Numbers = () => {
       />
       {initalWord}
       {isCorrect ? (
-        <p className="text-green-500 font-bold">Complimenti! Hai indovinato</p>
+        <p className={isCorrect ? "shake text-green-500 font-bold" : ""}>
+          Complimenti! Hai indovinato
+        </p>
       ) : (
         ""
       )}
@@ -103,6 +114,11 @@ const Numbers = () => {
           Indovina il numero che si nasconde dietro il punto interrogativo
           (0-10)
         </p>
+      ) : (
+        ""
+      )}
+      {isCorrect ? (
+        <Button text="Ricomincia" id="reset" callback={rigenerateNumber} style="border-2 border-black p-2 rounded hover:bg-gray-300 active:bg-gray-400 shadow-xl"/>
       ) : (
         ""
       )}
