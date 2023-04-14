@@ -23,6 +23,7 @@ const Home = () => {
           style="border-2 border-black p-2 rounded hover:bg-gray-300 active:bg-gray-400 shadow-xl"
           callback={() => navigate("/choosebox")}
         />
+        <Button text='Tira il dado' id='rolls-dice' callback={() => navigate("/rolls-dice")} />
       </div>
     </>
   );

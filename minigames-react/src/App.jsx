@@ -6,6 +6,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Numbers from "./pages/Number";
 import Home from "./pages/Home";
 import ChooseBox from "./pages/ChooseBox";
+import DiceRoller from "./pages/DiceRoller";
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/numbers" element={<Numbers />} />
         <Route path="/choosebox" element={<ChooseBox />} />
+        <Route path="/rolls-dice" element={<DiceRoller />} />
       </Routes>
       <div className="w-full h-screen absolute top-0 left-0 z-[-1] animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-blue-500">
         <Particles />

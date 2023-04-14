@@ -70,7 +70,7 @@ const ChooseBox = () => {
             id="wrong"
             className={`${wrong ? "shake text-red-500 font-bold" : ""}`}
           >
-            Sbagliato, riprova
+            Sbagliato, riprova!
           </p>
         ) : (
           ""
